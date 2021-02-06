@@ -45,9 +45,9 @@ async def archiv(ctx):
 
 @bot.command()
 async def hilfe(ctx):
-    # Display Help Menu.
+    # Display Help Menu as embed.
     await ctx.send(
-        embed=discord.Embed(title="Eberhard Pauker | Hilfe", description="", color=0x00ff00)
+        embed=discord.Embed(title="Dr.Dr.Prof. Eberhard Pauker | Hilfe", description="", color=0x00ff00)
         .add_field(name="#eintragen 'FACH' 'Link zur Aufgabe' 'Abgabetermin'", value="Abgelaufene Abgabetermine werden automatisch Archiviert.", inline=True)
         .add_field(name="#ha", value="Eine numerierte Liste der noch Anstehenden Hausaufgaben.", inline=True)
         .add_field(name="#löschen 'Nummer'", value="Lösche den Eintrag an der gewünschten Stelle.", inline=True)
@@ -56,8 +56,7 @@ async def hilfe(ctx):
                                                                           "Mit einem Thema ist es eine Ja/Nein Abstimmung,"
                                                                           "mehr Themen ergeben eine klassische Abstimmung", inline=True)
         .set_footer(text="Hilfemenü für Dr. Dr. Prof. Eberhard Pauker", icon_url="")
-        .set_author(name="conamu | https://gitlab.ho-me.zone/conamu/", url="https://gitlab.ho-me.zone/conamu", icon_url=""))
-
+        .set_author(name="conamu | https://gitlab.ho-me.zone/conamu/eberhard-pauker", url="https://gitlab.ho-me.zone/conamu", icon_url=""))
 
 @bot.event
 async def on_ready():
