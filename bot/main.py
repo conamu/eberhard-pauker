@@ -17,7 +17,7 @@ async def eintragen(ctx, fach, link, termin):
     await ctx.send("Ich habe die Hausaufgabe erfolgreich abgespeichert!  :notebook_with_decorative_cover:")
 
 @bot.command()
-async def HA(ctx):
+async def ha(ctx):
     await ctx.send(hausaufgaben())
 
 @bot.command()
