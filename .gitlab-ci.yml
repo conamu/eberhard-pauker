@@ -1,5 +1,5 @@
-services:
-- docker:dind
+before_build:
+  - docker info
 
 build-job:
   stage: build
