@@ -1,7 +1,9 @@
 import csv
 import datetime
 import os
+from dotenv import load_dotenv
 
+load_dotenv()
 HA_RECORDS = os.getenv('HA_RECORDS')
 HA_RECORDS_ARCHIVE = os.getenv('HA_RECORDS_ARCHIVE')
 

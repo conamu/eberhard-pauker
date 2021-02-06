@@ -1,8 +1,4 @@
-import os
 from csvHandler import *
-
-HA_RECORDS = os.getenv('HA_RECORDS')
-HA_RECORDS_ARCHIVE = os.getenv('HA_RECORDS_ARCHIVE')
 
 def hausaufgaben():
 

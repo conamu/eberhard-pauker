@@ -1,6 +1,3 @@
-import os
-from dotenv import load_dotenv
-
 from definitions import *
 from discord.ext import commands
 
