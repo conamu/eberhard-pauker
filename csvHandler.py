@@ -3,7 +3,7 @@ import datetime
 
 
 def getHa(file):
-    with open(file) as haFile:
+    with open(file, "w+") as haFile:
         csv_reader = csv.reader(haFile, delimiter=',')
         records = []
         elementCounter = 0
@@ -32,7 +32,7 @@ def putHa(record, mode, file):
     else:
         oldRecords = record
 
-    with open(file, mode='w', newline='') as haFile:
+    with open(file, mode='w+', newline='') as haFile:
         csv_writer = csv.writer(haFile, delimiter=",")
 
         for row in oldRecords:
