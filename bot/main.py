@@ -6,7 +6,7 @@ load_dotenv()
 TOKEN = os.getenv('DISCORD_TOKEN')
 SERVER = os.getenv('DISCORD_GUILD')
 
-bot = commands.Bot(command_prefix='#', help_command=None)
+bot = commands.Bot(command_prefix='/', help_command=None)
 
 ha_records = open(HA_RECORDS, "w+")
 ha_records_archive = open(HA_RECORDS_ARCHIVE, "w+")
