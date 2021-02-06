@@ -7,6 +7,9 @@ SERVER = os.getenv('DISCORD_GUILD')
 
 bot = commands.Bot(command_prefix='#')
 
+ha_records = open(HA_RECORDS, "w+")
+ha_records_archive = open(HA_RECORDS_ARCHIVE, "w+")
+
 
 @bot.command()
 async def eintragen(ctx, fach, link, termin):

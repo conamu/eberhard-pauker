@@ -11,7 +11,7 @@ HA_RECORDS_ARCHIVE = os.getenv('HA_RECORDS_ARCHIVE')
 def getHa(file):
 
     # Open the File and return an array of records.
-    with open(file, "w+") as haFile:
+    with open(file, "r") as haFile:
         csv_reader = csv.reader(haFile, delimiter=',')
         records = []
         elementCounter = 0
