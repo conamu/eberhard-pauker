@@ -1,5 +1,5 @@
 before_build:
-  - docker info
+- docker info
 
 build-job:
   stage: build
