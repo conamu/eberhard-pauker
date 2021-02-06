@@ -1,5 +1,5 @@
-bot/ha_archive.csv
-bot/ha_records.csv
+data/ha_archive.csv
+data/ha_records.csv
 venv
 __pycache__
 .idea
