@@ -54,7 +54,7 @@ async def hilfe(ctx):
         .add_field(name="#archiv", value="Eine Liste aus allen bisherigen, abgelaufenen Aufgaben.", inline=True)
         .add_field(name="#abstimmung 'Mehrere Themen/Stichpunkte'", value="Erstelle eine Abstimmung. "
                                                                           "Mit einem Thema ist es eine Ja/Nein Abstimmung,"
-                                                                          "mehr Themen ergeben eine klassische Abstimmung", inline=True)
+                                                                          "mehr Themen ergeben eine klassische Abstimmung (Noch nicht implementiert)", inline=True)
         .set_footer(text="Hilfemenü für Dr. Dr. Prof. Eberhard Pauker", icon_url="")
         .set_author(name="conamu | https://gitlab.ho-me.zone/conamu/eberhard-pauker", url="https://gitlab.ho-me.zone/conamu", icon_url=""))
 
