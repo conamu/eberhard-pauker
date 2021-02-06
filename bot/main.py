@@ -6,7 +6,7 @@ load_dotenv()
 TOKEN = os.getenv('DISCORD_TOKEN')
 SERVER = os.getenv('DISCORD_GUILD')
 
-bot = commands.Bot(command_prefix='/', help_command=None)
+bot = commands.Bot(command_prefix='-', help_command=None)
 
 ha_records = open(HA_RECORDS, "w+")
 ha_records_archive = open(HA_RECORDS_ARCHIVE, "w+")
@@ -48,11 +48,11 @@ async def hilfe(ctx):
     # Display Help Menu as embed.
     await ctx.send(
         embed=discord.Embed(title="Dr.Dr.Prof. Eberhard Pauker | Hilfe", description="", color=0x00ff00)
-        .add_field(name="#eintragen 'FACH' 'Link zur Aufgabe' 'Abgabetermin'", value="Abgelaufene Abgabetermine werden automatisch Archiviert.", inline=True)
-        .add_field(name="#ha", value="Eine numerierte Liste der noch Anstehenden Hausaufgaben.", inline=True)
-        .add_field(name="#löschen 'Nummer'", value="Lösche den Eintrag an der gewünschten Stelle.", inline=True)
-        .add_field(name="#archiv", value="Eine Liste aus allen bisherigen, abgelaufenen Aufgaben.", inline=True)
-        .add_field(name="#abstimmung 'Mehrere Themen/Stichpunkte'", value="Erstelle eine Abstimmung. "
+        .add_field(name="-eintragen 'FACH' 'Link zur Aufgabe' 'Abgabetermin'", value="Abgelaufene Abgabetermine werden automatisch Archiviert.", inline=True)
+        .add_field(name="-ha", value="Eine numerierte Liste der noch Anstehenden Hausaufgaben.", inline=True)
+        .add_field(name="-löschen 'Nummer'", value="Lösche den Eintrag an der gewünschten Stelle.", inline=True)
+        .add_field(name="-archiv", value="Eine Liste aus allen bisherigen, abgelaufenen Aufgaben.", inline=True)
+        .add_field(name="-abstimmung 'Mehrere Themen/Stichpunkte'", value="Erstelle eine Abstimmung. "
                                                                           "Mit einem Thema ist es eine Ja/Nein Abstimmung,"
                                                                           "mehr Themen ergeben eine klassische Abstimmung (Noch nicht implementiert)", inline=True)
         .set_footer(text="Hilfemenü für Dr. Dr. Prof. Eberhard Pauker", icon_url="")
