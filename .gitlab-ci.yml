@@ -5,7 +5,7 @@ build-job:
     - docker build --tag "conamu470/eberhard-pauker" .
 
 deploy-prod:
-  stage: push
+  stage: deploy
   script:
     - echo "Logging in to Dockerhub..."
     - docker login -p v5i7aLP6spvvbzc2 -u conamu470
