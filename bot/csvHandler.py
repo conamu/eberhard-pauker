@@ -1,5 +1,9 @@
 import csv
 import datetime
+import os
+
+HA_RECORDS = os.getenv('HA_RECORDS')
+HA_RECORDS_ARCHIVE = os.getenv('HA_RECORDS_ARCHIVE')
 
 
 def getHa(file):
@@ -26,10 +30,10 @@ def putHa(record, mode, file):
     oldRecords = []
 
     if mode == 0:
-        oldRecords = getHa('ha_records.csv')
+        oldRecords = getHa(HA_RECORDS)
         oldRecords.append(record)
     elif mode == 2:
-        oldRecords = getHa('ha_archive.csv')
+        oldRecords = getHa(HA_RECORDS_ARCHIVE)
         for rec in record:
             oldRecords.append(rec)
     else:
@@ -45,7 +49,7 @@ def syncWithDate():
     # Get tomorrows Date
     tomorrow = datetime.datetime.today() + datetime.timedelta(days=1)
     # archive and remove all old entries that
-    records = getHa('ha_records.csv')
+    records = getHa(HA_RECORDS)
     updatedRecords = []
     oldRecords = []
 
@@ -56,7 +60,7 @@ def syncWithDate():
         if dateOfRecord < tomorrow:
             oldRecords.append(record)
 
-    putHa(updatedRecords, 1, 'ha_records.csv')
-    putHa(oldRecords, 2, 'ha_archive.csv')
+    putHa(updatedRecords, 1, HA_RECORDS)
+    putHa(oldRecords, 2, HA_RECORDS_ARCHIVE)
 
     return "Ich habe alle Aufgaben mit abgelaufenen Abgabeterminen Entfernt"

@@ -1,5 +1,8 @@
+import os
 from csvHandler import *
 
+HA_RECORDS = os.getenv('HA_RECORDS')
+HA_RECORDS_ARCHIVE = os.getenv('HA_RECORDS_ARCHIVE')
 
 def hausaufgaben():
 
@@ -7,7 +10,7 @@ def hausaufgaben():
     syncWithDate()
 
     # Get List of Assignments and display them.
-    records = getHa('ha_records.csv')
+    records = getHa(HA_RECORDS)
     recordArray = []
     lineNumber = 1
 
@@ -24,7 +27,7 @@ def showArchive():
     syncWithDate()
 
     # Show list of archived assignments
-    records = getHa('ha_archive.csv')
+    records = getHa(HA_RECORDS_ARCHIVE)
     recordArray = []
     lineNumber = 1
 
@@ -37,7 +40,7 @@ def showArchive():
 
 
 def eintr(fach, link, termin):
-    putHa([fach, link, termin], 0, 'ha_records.csv')
+    putHa([fach, link, termin], 0, HA_RECORDS)
 
 
 def abstimmen(*args):
@@ -50,7 +53,7 @@ def loesch(line):
     syncWithDate()
 
     # Get current assignment list and put every entry back but the selected one.
-    currentRecords = getHa('ha_records.csv')
+    currentRecords = getHa(HA_RECORDS)
     currentLine = 1
     lineToDelete = int(line)
     updatedRecords = []
@@ -60,7 +63,7 @@ def loesch(line):
             updatedRecords.append(row)
         currentLine += 1
 
-    putHa(updatedRecords, 1, 'ha_records.csv')
+    putHa(updatedRecords, 1, HA_RECORDS)
 
     return "Ich habe den ausgewählten Eintrag entfernt."
 
