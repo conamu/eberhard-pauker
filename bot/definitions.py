@@ -3,7 +3,10 @@ from csvHandler import *
 
 def hausaufgaben():
 
-    synchWithDate()
+    # First sync list with date to to archive old Assignments.
+    syncWithDate()
+
+    # Get List of Assignments and display them.
     records = getHa('ha_records.csv')
     recordArray = []
     lineNumber = 1
@@ -17,7 +20,10 @@ def hausaufgaben():
 
 def showArchive():
 
-    synchWithDate()
+    # Sync with date to archive old assignments.
+    syncWithDate()
+
+    # Show list of archived assignments
     records = getHa('ha_archive.csv')
     recordArray = []
     lineNumber = 1
@@ -40,6 +46,10 @@ def abstimmen(*args):
 
 def loesch(line):
 
+    # Sync with date to archive old assignments.
+    syncWithDate()
+
+    # Get current assignment list and put every entry back but the selected one.
     currentRecords = getHa('ha_records.csv')
     currentLine = 1
     lineToDelete = int(line)

@@ -3,6 +3,8 @@ import datetime
 
 
 def getHa(file):
+
+    # Open the File and return an array of records.
     with open(file, "w+") as haFile:
         csv_reader = csv.reader(haFile, delimiter=',')
         records = []
@@ -19,6 +21,8 @@ def getHa(file):
 
 def putHa(record, mode, file):
 
+    # Open the File and write an array of records
+    # or add records to existing ones.
     oldRecords = []
 
     if mode == 0:
@@ -28,7 +32,6 @@ def putHa(record, mode, file):
         oldRecords = getHa('ha_archive.csv')
         for rec in record:
             oldRecords.append(rec)
-
     else:
         oldRecords = record
 
@@ -38,10 +41,10 @@ def putHa(record, mode, file):
         for row in oldRecords:
             csv_writer.writerow(row)
 
-def synchWithDate():
-
+def syncWithDate():
+    # Get tomorrows Date
     tomorrow = datetime.datetime.today() + datetime.timedelta(days=1)
-
+    # archive and remove all old entries that
     records = getHa('ha_records.csv')
     updatedRecords = []
     oldRecords = []
