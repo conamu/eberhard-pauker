@@ -13,4 +13,4 @@ deploy-prod:
     - echo "Logging in to Dockerhub..."
     - docker login -p v5i7aLP6spvvbzc2 -u conamu470
     - echo "Pushing Image to Dockerhub!"
-    - docker push build --tag "conamu470/eberhard-pauker"
+    - docker push conamu470/eberhard-pauker
