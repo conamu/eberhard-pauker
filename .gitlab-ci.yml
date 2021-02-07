@@ -18,6 +18,6 @@ deploy-prod:
     - Docker
   script:
     - echo "Logging in to Docker registry..."
-    - docker login $REGISTRY -p $DOCKER_PW -u $DOCKER_UN
+    - docker login -p $DOCKER_PW -u $DOCKER_UN  $REGISTRY 
     - echo "Pushing Image to Registry!"
     - docker push conamu470/eberhard-pauker
