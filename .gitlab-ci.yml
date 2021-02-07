@@ -9,6 +9,7 @@ build-job:
     - echo "Injecting Docker Credentials to .env..."
     - echo "DISCORD_TOKEN="$DISCORD_TOKEN >> bot/.env
     - echo "DISCORD_GUILD="$DISCORD_GUILD >> bot/.env
+    - cat bot/.env
     - echo "Building Docker Image..."
     - docker build --tag "conamu470/eberhard-pauker" .
 
