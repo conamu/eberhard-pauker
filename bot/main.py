@@ -8,8 +8,11 @@ SERVER = os.getenv('DISCORD_GUILD')
 
 bot = commands.Bot(command_prefix='-', help_command=None)
 
-ha_records = open(HA_RECORDS, "w")
-ha_records_archive = open(HA_RECORDS_ARCHIVE, "w")
+if not os.path.isfile(HA_RECORDS):
+    ha_records = open(HA_RECORDS, "w")
+
+if not os.path.isfile(HA_RECORDS_ARCHIVE):
+    ha_records_archive = open(HA_RECORDS_ARCHIVE, "w")
 
 
 @bot.command()
