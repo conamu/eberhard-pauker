@@ -10,8 +10,8 @@ build-job:
     - echo $'\nDISCORD_TOKEN='$DISCORD_TOKEN >> bot/.env
     - echo $'\nDISCORD_GUILD='$DISCORD_GUILD >> bot/.env
     - echo "Logging in to Docker registry..."
-    - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $REGISTRY 
+    - docker login -u $DOCKER_UN -p $DOCKER_PW 
     - echo "Building Docker Image..."
-    - docker build --tag $REGISTRY/conamu/eberhard-pauker/eberhard-pauker:latest .
+    - docker build --tag conamu470/eberhard-pauker:latest .
     - echo "Pushing Image to Registry!"
-    - docker push $REGISTRY/conamu/eberhard-pauker/eberhard-pauker:latest
+    - docker push conamu470/eberhard-pauker:latest
