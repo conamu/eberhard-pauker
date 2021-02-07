@@ -1,5 +1,3 @@
-
-
 before_script:
 - docker info
 
@@ -8,6 +6,9 @@ build-job:
   tags:
     - Docker
   script:
+    - echo "Injecting Docker Credentials to .env..."
+    - echo "DISCORD_TOKEN="$DISCORD_TOKEN >> bot/.env
+    - echo "DISCORD_GUILD="$DISCORD_GUILD >> bot/.env
     - echo "Building Docker Image..."
     - docker build --tag "conamu470/eberhard-pauker" .
 
