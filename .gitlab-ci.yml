@@ -10,14 +10,14 @@ build-job:
     - echo $'\nDISCORD_TOKEN='$DISCORD_TOKEN >> bot/.env
     - echo $'\nDISCORD_GUILD='$DISCORD_GUILD >> bot/.env
     - echo "Building Docker Image..."
-    - docker build --tag "conamu470/eberhard-pauker" .
+    - docker build --tag "gitlab.ho-me.zone/conamu/eberhard-pauker/eberhard-pauker:latest" .
 
 deploy-prod:
   stage: deploy
   tags:
     - Docker
   script:
-    - echo "Logging in to Dockerhub..."
-    - docker login -p $DOCKER_PW -u $DOCKER_UN
-    - echo "Pushing Image to Dockerhub!"
+    - echo "Logging in to Docker registry..."
+    - docker login $REGISTRY -p $DOCKER_PW -u $DOCKER_UN
+    - echo "Pushing Image to Registry!"
     - docker push conamu470/eberhard-pauker
