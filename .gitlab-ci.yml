@@ -1,16 +1,22 @@
+
+
 before_script:
 - docker info
 
 build-job:
   stage: build
+  tags:
+    - Docker
   script:
-    - echo "Building Docker Image"
+    - echo "Building Docker Image..."
     - docker build --tag "conamu470/eberhard-pauker" .
 
 deploy-prod:
   stage: deploy
+  tags:
+    - Docker
   script:
     - echo "Logging in to Dockerhub..."
-    - docker login -p v5i7aLP6spvvbzc2 -u conamu470
+    - docker login -p $DOCKER_PW -u $DOCKER_UN
     - echo "Pushing Image to Dockerhub!"
     - docker push conamu470/eberhard-pauker
