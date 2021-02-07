@@ -6,9 +6,12 @@ build-job:
   tags:
     - Docker
   script:
-    - echo "Injecting Docker Credentials to .env..."
+    - echo "Injecting Docker Credentials and Variables to .env..."
+    - touch bot/.env
     - echo $'\nDISCORD_TOKEN='$DISCORD_TOKEN >> bot/.env
     - echo $'\nDISCORD_GUILD='$DISCORD_GUILD >> bot/.env
+    - echo $'\nHA_RECORDS=data/ha_records.csv' >> bot/.env
+    - echo $'HA_RECORDS_ARCHIVE=data/ha_archive.csv' >> bot/.env
     - echo "Logging in to Docker registry..."
     - docker login -u $DOCKER_UN -p $DOCKER_PW 
     - echo "Building Docker Image..."
