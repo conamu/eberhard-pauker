@@ -49,7 +49,7 @@ def putHa(record, mode, file):
 
 def syncWithDate():
     # Get tomorrows Date
-    tomorrow = datetime.datetime.today() + datetime.timedelta(days=1)
+    today = datetime.datetime.today()
     # archive and remove all old entries that
     records = getHa(HA_RECORDS)
     updatedRecords = []
@@ -57,9 +57,10 @@ def syncWithDate():
 
     for record in records:
         dateOfRecord = datetime.datetime.strptime(record[2], '%d.%m.%Y')
-        if dateOfRecord >= tomorrow:
+        dateOfRecordCorrected = dateOfRecord + datetime.timedelta(days=1)
+        if dateOfRecordCorrected > today:
             updatedRecords.append(record)
-        if dateOfRecord < tomorrow:
+        if dateOfRecordCorrected <= today:
             oldRecords.append(record)
 
     putHa(updatedRecords, 1, HA_RECORDS)
