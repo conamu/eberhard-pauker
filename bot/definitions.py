@@ -60,22 +60,3 @@ def loesch(line):
         currentLine += 1
 
     putHa(updatedRecords, 1, HA_RECORDS)
-
-    return "Ich habe den ausgewählten Eintrag entfernt."
-
-
-def help():
-    # embeddedHelp = discord.Embed()
-    # embeddedHelp.color('#E96A00')
-    # embeddedHelp.title('Hilfeseite für Dr. Dr. Prof. Eberhard Pauker')
-    # embeddedHelp.add_field(name='', value='', inline=True)
-    # embeddedHelp.add_field(name='test', value='test', inline=True)
-
-    return "Das sind meine Kompetenzen: \n" \
-           "#hilfe => Dieses Hilfe Menü. \n" \
-           "#HA => Eingetragene :notebook_with_decorative_cover: Hausaufgaben abrufen und zugehörige Abgabetermine \n" \
-           "#löschen => Versehentlich Falsch eingetragene Hausaufgaben löschen. \n" \
-           "#eintragen => Neuen Hausaufgaben eintrag erstellen. \n" \
-           "    Folgendens Format muss beachtet werden: \n" \
-           "    #eintragen <Fach> <link zur aufgabe> <Abgabetermin in DD.MM.JJJJ> \n" \
-           "#abstimmung => Erstelle eine Abstimmung."

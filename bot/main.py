@@ -56,7 +56,7 @@ async def abstimmung(ctx, *args):
 
 @bot.command()
 async def archiv(ctx):
-    # Comman to view the Archive of old Assignments.
+    # Command to view the Archive of old Assignments.
     await ctx.send(showArchive())
 
 
