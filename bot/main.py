@@ -16,8 +16,22 @@ if not os.path.isfile(HA_RECORDS_ARCHIVE):
 
 
 @bot.command()
-async def eintragen(ctx, fach, link, termin):
+async def eintragen(ctx, *args):
     # Command to insert a Homework entry.
+
+    # Convert Tuple to list
+    arguments = list(args)
+
+    # get the first element as fach and last element as date time.
+    fach = arguments[0]
+    termin = arguments[len(args)-1]
+    # Set first and last to empty string
+    arguments[0] = ""
+    arguments[len(args)-1] = ""
+
+    # Join everything between first and last list item to string.
+    link = " ".join(arguments)
+
     eintr(fach, link, termin)
     await ctx.send("Ich habe die Hausaufgabe erfolgreich abgespeichert!  :notebook_with_decorative_cover:")
 
@@ -71,6 +85,5 @@ async def on_ready():
         f'{bot.user} is connected to the following servers:\n'
         f'{server.name}(id: {server.id})'
     )
-
 
 bot.run(TOKEN)
