@@ -40,7 +40,8 @@ def eintr(fach, link, termin):
 
 
 def abstimmen(*args):
-    return args
+
+    return
 
 
 def loesch(line):
@@ -60,3 +61,5 @@ def loesch(line):
         currentLine += 1
 
     putHa(updatedRecords, 1, HA_RECORDS)
+
+    return f"Ich habe den eintrag Nr.{line} gelöscht!"
