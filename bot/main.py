@@ -14,6 +14,9 @@ if not os.path.isfile(HA_RECORDS):
 if not os.path.isfile(HA_RECORDS_ARCHIVE):
     ha_records_archive = open(HA_RECORDS_ARCHIVE, "w")
 
+if not os.path.isfile(POLL_RECORDS):
+    poll_records = open(POLL_RECORDS)
+
 
 @bot.command()
 async def eintragen(ctx, *args):

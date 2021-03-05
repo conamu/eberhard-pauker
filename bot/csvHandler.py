@@ -6,6 +6,7 @@ from dotenv import load_dotenv
 load_dotenv()
 HA_RECORDS = os.getenv('HA_RECORDS')
 HA_RECORDS_ARCHIVE = os.getenv('HA_RECORDS_ARCHIVE')
+POLL_RECORDS = os.getenv('POLL_RECORDS')
 
 
 def getHa(file):
