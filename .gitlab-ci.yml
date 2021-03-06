@@ -13,6 +13,7 @@ build-job:
     - echo $'\nHA_RECORDS=data/ha_records.csv' >> bot/.env
     - echo $'\nHA_RECORDS_ARCHIVE=data/ha_archive.csv' >> bot/.env
     - echo $'\nPOLL_RECORDS = data/poll_recods.csv' >> bot/.env
+    - echo $'\nPOLL_ARCHIVE = data/poll_archive.csv' >> bot/.env
     - echo "Logging in to Docker registry..."
     - docker login -u $DOCKER_UN -p $DOCKER_PW 
     - echo "Building Docker Image..."

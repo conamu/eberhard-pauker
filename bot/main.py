@@ -1,4 +1,5 @@
 from definitions import *
+from polling import *
 from discord.ext import commands
 import discord
 
@@ -10,12 +11,19 @@ bot = commands.Bot(command_prefix='-', help_command=None)
 
 if not os.path.isfile(HA_RECORDS):
     ha_records = open(HA_RECORDS, "w")
+    ha_records.close()
 
 if not os.path.isfile(HA_RECORDS_ARCHIVE):
     ha_records_archive = open(HA_RECORDS_ARCHIVE, "w")
+    ha_records_archive.close()
 
 if not os.path.isfile(POLL_RECORDS):
-    poll_records = open(POLL_RECORDS)
+    poll_records = open(POLL_RECORDS, "w")
+    poll_records.close()
+
+if not os.path.isfile(POLL_ARCHIVE):
+    poll_archive = open(POLL_ARCHIVE, "w")
+    poll_archive.close()
 
 
 @bot.command()
@@ -54,7 +62,7 @@ async def löschen(ctx, line):
 @bot.command()
 async def abstimmung(ctx, *args):
     # Command to create a poll.
-    await ctx.send(abstimmen(*args))
+    await ctx.send(abstimmen(args))
 
 
 @bot.command()
