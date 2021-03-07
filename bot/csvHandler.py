@@ -22,7 +22,9 @@ def getHa(file):
             if elementCounter == 3:
                 records.append(row)
             elementCounter = 0
-        return records
+
+    haFile.close()
+    return records
 
 
 def putHa(record, mode, file):
@@ -46,6 +48,8 @@ def putHa(record, mode, file):
 
         for row in oldRecords:
             csv_writer.writerow(row)
+    haFile.close()
+
 
 def syncWithDate():
     # Get tomorrows Date

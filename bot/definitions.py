@@ -3,7 +3,7 @@ from csvHandler import *
 def hausaufgaben():
 
     # First sync list with date to to archive old Assignments.
-    syncWithDate()
+    print(syncWithDate())
 
     # Get List of Assignments and display them.
     records = getHa(HA_RECORDS)
@@ -17,10 +17,11 @@ def hausaufgaben():
 
     return "Hier geht es zu unserem Moodle: https://moodle.oszimt.de/ \nFolgende Aufgaben sind noch zu erledigen\n" + "\n".join(recordArray)
 
+
 def showArchive():
 
     # Sync with date to archive old assignments.
-    syncWithDate()
+    print(syncWithDate())
 
     # Show list of archived assignments
     records = getHa(HA_RECORDS_ARCHIVE)
@@ -39,15 +40,10 @@ def eintr(fach, link, termin):
     putHa([fach, link, termin], 0, HA_RECORDS)
 
 
-def abstimmen(*args):
-
-    return
-
-
 def loesch(line):
 
     # Sync with date to archive old assignments.
-    syncWithDate()
+    print(syncWithDate())
 
     # Get current assignment list and put every entry back but the selected one.
     currentRecords = getHa(HA_RECORDS)
