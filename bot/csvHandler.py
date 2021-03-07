@@ -6,8 +6,6 @@ from dotenv import load_dotenv
 load_dotenv()
 HA_RECORDS = os.getenv('HA_RECORDS')
 HA_RECORDS_ARCHIVE = os.getenv('HA_RECORDS_ARCHIVE')
-POLL_RECORDS = os.getenv('POLL_RECORDS')
-POLL_ARCHIVE = os.getenv('POLL_ARCHIVE')
 
 
 def getHa(file):
@@ -51,12 +49,6 @@ def putHa(record, mode, file):
         for row in oldRecords:
             csv_writer.writerow(row)
     haFile.close()
-
-def syncPollBaseData(data, file):
-    # data modell: nextPollID, totalPolls
-    file = POLL_RECORDS
-    with open(file, mode='w+', newline='') as pollFile:
-        csv_writer = csv.writer(pollFile, delimiter=",")
 
 
 def syncWithDate():

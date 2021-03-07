@@ -17,6 +17,7 @@ def hausaufgaben():
 
     return "Hier geht es zu unserem Moodle: https://moodle.oszimt.de/ \nFolgende Aufgaben sind noch zu erledigen\n" + "\n".join(recordArray)
 
+
 def showArchive():
 
     # Sync with date to archive old assignments.
@@ -34,8 +35,10 @@ def showArchive():
 
     return "Folgende Aufgaben sind bereits Abgelaufen: \n" + "\n".join(recordArray)
 
+
 def eintr(fach, link, termin):
     putHa([fach, link, termin], 0, HA_RECORDS)
+
 
 def loesch(line):
 
