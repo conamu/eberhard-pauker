@@ -1,5 +1,4 @@
 from definitions import *
-from polling import *
 from discord.ext import commands
 import discord
 
