@@ -4,7 +4,6 @@ import discord
 
 load_dotenv()
 TOKEN = os.getenv('DISCORD_TOKEN')
-SERVER = os.getenv('DISCORD_GUILD')
 
 bot = commands.Bot(command_prefix='-', help_command=None)
 
@@ -68,15 +67,5 @@ async def hilfe(ctx):
         .set_footer(text="Hilfemenü für Dr. Dr. Prof. Eberhard Pauker", icon_url="")
         .set_author(name="conamu | https://gitlab.ho-me.zone/conamu/eberhard-pauker", url="https://gitlab.ho-me.zone/conamu", icon_url=""))
 
-@bot.event
-async def on_ready():
-    for server in bot.guilds:
-        if server.name == SERVER:
-            break
-
-    print(
-        f'{bot.user} is connected to the following servers:\n'
-        f'{server.name}(id: {server.id})'
-    )
 
 bot.run(TOKEN)
